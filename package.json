@@ -1,0 +1,13 @@
+{
+  "name": "dodo-checkout-assignment",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently \"pnpm --filter checkout dev\" \"pnpm --filter demo dev\"",
+    "dev:checkout": "pnpm --filter checkout dev",
+    "dev:demo": "pnpm --filter demo dev",
+    "build": "pnpm --recursive build"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}

@@ -1,0 +1,296 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+/* Reset & base */
+*, *::before, *::after { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, sans-serif;
+  background: #f7f8f5;
+  color: #10130f;
+  -webkit-font-smoothing: antialiased;
+}
+button, input { font: inherit; }
+
+/* ---- Animations ---- */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+@keyframes checkPop {
+  0%   { transform: scale(0.6); opacity: 0; }
+  60%  { transform: scale(1.15); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.animate-in  { animation: fadeUp 0.35s cubic-bezier(0.22,1,0.36,1) both; }
+.animate-error { animation: slideDown 0.22s ease both; }
+
+/* ---- Layout ---- */
+.checkout {
+  min-height: 100vh;
+  padding: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ---- Card ---- */
+.card {
+  width: 100%;
+  max-width: 460px;
+  background: #fff;
+  border: 1px solid #e5e9df;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(16, 19, 15, 0.07);
+}
+
+/* ---- Header ---- */
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  border-bottom: 1px solid #edf0e9;
+}
+.brand {
+  font-family: "Space Grotesk", system-ui;
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: -0.04em;
+}
+.brand span { color: #a7e600; }
+
+.badge {
+  font-size: 11px;
+  padding: 4px 10px;
+  background: #f0f2ed;
+  border-radius: 99px;
+  color: #697264;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.close {
+  border: 0;
+  background: transparent;
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  color: #9aa194;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s, color 0.15s;
+}
+.close:hover { background: #f0f2ed; color: #10130f; }
+.close:disabled { opacity: 0.4; cursor: not-allowed; }
+
+/* ---- Content ---- */
+.content {
+  padding: 24px 24px 28px;
+}
+.content.center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 240px;
+  text-align: center;
+}
+
+/* ---- Typography ---- */
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 10.5px;
+  font-weight: 700;
+  color: #75806e;
+}
+.title {
+  font-family: "Space Grotesk", system-ui;
+  font-size: 26px;
+  letter-spacing: -0.04em;
+  margin: 8px 0 4px;
+  line-height: 1.15;
+}
+.muted {
+  color: #697264;
+  font-size: 13px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ---- Product row ---- */
+.product {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 16px;
+  background: #f6f8f2;
+  border-radius: 12px;
+  margin: 20px 0 4px;
+}
+.product strong { font-size: 14px; }
+.price { font-weight: 700; font-size: 15px; }
+
+/* ---- Form ---- */
+.label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: #3d4439;
+  margin: 16px 0 6px;
+}
+.input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1.5px solid #dce2d6;
+  border-radius: 10px;
+  outline: none;
+  font-size: 14px;
+  color: #10130f;
+  background: #fff;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.input::placeholder { color: #b0bba8; }
+.input:focus {
+  border-color: #9bcf00;
+  box-shadow: 0 0 0 3px rgba(167, 230, 0, 0.18);
+}
+.input:disabled {
+  background: #f9faf7;
+  color: #9aa194;
+  cursor: not-allowed;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+/* ---- Hint ---- */
+.hint {
+  font-size: 11px;
+  color: #9aa194;
+  margin-top: 10px;
+  line-height: 1.5;
+}
+.hint code {
+  font-family: monospace;
+  background: #f0f2ed;
+  padding: 1px 4px;
+  border-radius: 3px;
+  font-size: 10.5px;
+}
+
+/* ---- Error ---- */
+.error {
+  margin-top: 14px;
+  padding: 11px 14px;
+  border-radius: 10px;
+  background: #fff3f1;
+  border: 1px solid #fcd4cc;
+  color: #b33b25;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* ---- Pay button ---- */
+.pay {
+  width: 100%;
+  margin-top: 20px;
+  padding: 14px;
+  border: 0;
+  border-radius: 11px;
+  background: #a7e600;
+  color: #111;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  letter-spacing: -0.01em;
+  transition: background 0.15s, transform 0.1s, opacity 0.15s;
+}
+.pay:hover:not(:disabled) { background: #b5f30d; }
+.pay:active:not(:disabled) { transform: scale(0.99); }
+.pay:disabled { opacity: 0.55; cursor: not-allowed; }
+.pay--retry { background: #10130f; color: #fff; }
+.pay--retry:hover:not(:disabled) { background: #2a2e27; }
+
+.btn-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* ---- Spinner ---- */
+.spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(0,0,0,0.15);
+  border-top-color: #10130f;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  flex-shrink: 0;
+}
+.spinner.large {
+  width: 32px;
+  height: 32px;
+  border-width: 3px;
+  border-color: #dce2d6;
+  border-top-color: #a7e600;
+}
+
+/* ---- Secure note ---- */
+.secure {
+  text-align: center;
+  font-size: 11px;
+  color: #9aa194;
+  margin: 12px 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+/* ---- Success ---- */
+.success {
+  text-align: center;
+  padding: 28px 8px 12px;
+}
+.success-circle {
+  width: 64px;
+  height: 64px;
+  background: #a7e600;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  animation: checkPop 0.4s cubic-bezier(0.22,1,0.36,1) both;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 500px) {
+  .checkout { padding: 12px; }
+  .content { padding: 20px 18px 24px; }
+  .top { padding: 16px 18px; }
+  .title { font-size: 22px; }
+}
