@@ -24,6 +24,7 @@ pnpm dev
 - **Checkout Standalone Preview:** http://localhost:3001
 
 ### Live Deployments
+- **Live Demo Store:** https://demo-flax-nu-76.vercel.app
 - **Checkout Standalone Preview:** https://checkout-alpha-one.vercel.app
 
 ## How to Use the SDK
