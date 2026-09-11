@@ -31,7 +31,11 @@ export default function Page() {
     add("checkout.open");
     DodoCheckout.open({
       productId: "prod_123",
-      checkoutUrl: "http://localhost:3001",
+      checkoutUrl:
+        process.env.NEXT_PUBLIC_CHECKOUT_URL ||
+        (typeof window !== "undefined" && window.location.hostname === "localhost"
+          ? "http://localhost:3001"
+          : "https://checkout-alpha-one.vercel.app"),
       onSuccess: ({ sessionId }) => {
         add("checkout.success", sessionId);
         setSuccessSession(sessionId);

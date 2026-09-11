@@ -19,9 +19,12 @@ pnpm install
 pnpm dev
 ```
 
-### URLs
+### Local URLs
 - **Demo Website:** http://localhost:3000
 - **Checkout Standalone Preview:** http://localhost:3001
+
+### Live Deployments
+- **Checkout Standalone Preview:** https://checkout-alpha-one.vercel.app
 
 ## How to Use the SDK
 
